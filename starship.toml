@@ -1,0 +1,48 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+format = '''
+$localip @ $directory$cmd_duration$git_status$status
+[>](bold green) '''
+right_format = '''$time'''
+
+[localip]
+ssh_only = false
+format = '[$localipv4](bold cyan)'
+disabled = false
+
+[directory]
+style = 'bold green'
+
+[cmd_duration]
+min_time = 500
+format = '[$duration](bold yellow) '
+
+[time]
+disabled = false
+style = 'bold green'
+format = '[$time]($style) '
+
+[git_status]
+conflicted = 'c'
+ahead = 'a'
+behind = 'b'
+diverged = '😵'
+up_to_date = '✓'
+untracked = 'u'
+stashed = 's'
+modified = 'm'
+staged = '[++\($count\)](green)'
+renamed = 'r'
+deleted = 'd'
+format = '[$all_status]($style)'
+
+[status]
+format = '[$common_meaning$signal_name$maybe_int]($style) '
+map_symbol = true
+disabled = false
+
+
